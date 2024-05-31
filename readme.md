@@ -1,33 +1,10 @@
 <h1 align="center">
-  <b>phc-argon2</b>
+  <b>phc-argon2-fork</b>
 </h1>
 
-> Fork of [@phc/argon2](https://npm.im/@phc/argon2) with updated dependencies
+> Fork of [phc-argon2](https://npm.im/phc-argon2) with updated dependencies
 
 <p align="center">
-  <!-- CI - TravisCI -->
-  <a href="https://travis-ci.com/simonepri/phc-argon2">
-    <img src="https://img.shields.io/travis/com/simonepri/phc-argon2/master.svg?label=MacOS%20%26%20Linux" alt="Mac/Linux Build Status" />
-  </a>
-  <!-- CI - AppVeyor -->
-  <a href="https://ci.appveyor.com/project/simonepri/phc-argon2">
-    <img src="https://img.shields.io/appveyor/ci/simonepri/phc-argon2/master.svg?label=Windows" alt="Windows Build status" />
-  </a>
-  <!-- Coverage - Codecov -->
-  <a href="https://codecov.io/gh/simonepri/phc-argon2">
-    <img src="https://img.shields.io/codecov/c/github/simonepri/phc-argon2/master.svg" alt="Codecov Coverage report" />
-  </a>
-  <!-- DM - Snyk -->
-  <a href="https://snyk.io/test/github/simonepri/phc-argon2?targetFile=package.json">
-    <img src="https://snyk.io/test/github/simonepri/phc-argon2/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" />
-  </a>
-  <!-- DM - David -->
-  <a href="https://david-dm.org/simonepri/phc-argon2">
-    <img src="https://david-dm.org/simonepri/phc-argon2/status.svg" alt="Dependency Status" />
-  </a>
-
-  <br/>
-
   <!-- Code Style - XO-Prettier -->
   <a href="https://github.com/xojs/xo">
     <img src="https://img.shields.io/badge/code_style-XO+Prettier-5ed9c7.svg" alt="XO Code Style used" />
@@ -52,12 +29,12 @@
   <br/>
 
   <!-- Version - npm -->
-  <a href="https://www.npmjs.com/package/@phc/argon2">
-    <img src="https://img.shields.io/npm/v/@phc/argon2.svg" alt="Latest version on npm" />
+  <a href="https://www.npmjs.com/package/phc-argon2-fork">
+    <img src="https://img.shields.io/npm/v/phc-argon2-fork.svg" alt="Latest version on npm" />
   </a>
   <!-- License - MIT -->
-  <a href="https://github.com/simonepri/phc-argon2/tree/master/license">
-    <img src="https://img.shields.io/github/license/simonepri/phc-argon2.svg" alt="Project license" />
+  <a href="https://github.com/n0uur/phc-argon2/tree/master/license">
+    <img src="https://img.shields.io/github/license/n0uur/phc-argon2.svg" alt="Project license" />
   </a>
 </p>
 <p align="center">
@@ -81,15 +58,15 @@ $argon2<variant>$v=<version>$m=<memory>,t=<iterations>,p=<parallelism>$<salt>$<h
 
 Where:
 
-| Field | Type | Description
-| --- | --- | --- |
-| `<variant>` | <code>string</code> | The [variant][specs:a2var] of the algorithm used to derive a key of the input password. |
-| `<version>` | <code>number</code> | The version of the argon2 algorithm used. |
-| `<memory>` | <code>number</code> | The amount of memory to consume in kibibytes. |
-| `<iterations>` | <code>number</code> | The number of iterations desired. The higher the number of iterations, the more secure the derived key will be, but will take a longer amount of time to complete. |
-| `<parallelism>` | <code>number</code> | The degree of parallelism to use while computing the hash. |
-| `<salt>` | <code>string</code> | A sequence of bits, known as a [cryptographic salt][specs:salt] encoded in [B64][specs:B64]. |
-| `<hash>` | <code>string</code> | The computed derived key by the [argon2][specs:Argon2] algorithm encoded in [B64][specs:B64]. |
+| Field           | Type                | Description                                                                                                                                                        |
+| --------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `<variant>`     | <code>string</code> | The [variant][specs:a2var] of the algorithm used to derive a key of the input password.                                                                            |
+| `<version>`     | <code>number</code> | The version of the argon2 algorithm used.                                                                                                                          |
+| `<memory>`      | <code>number</code> | The amount of memory to consume in kibibytes.                                                                                                                      |
+| `<iterations>`  | <code>number</code> | The number of iterations desired. The higher the number of iterations, the more secure the derived key will be, but will take a longer amount of time to complete. |
+| `<parallelism>` | <code>number</code> | The degree of parallelism to use while computing the hash.                                                                                                         |
+| `<salt>`        | <code>string</code> | A sequence of bits, known as a [cryptographic salt][specs:salt] encoded in [B64][specs:b64].                                                                       |
+| `<hash>`        | <code>string</code> | The computed derived key by the [argon2][specs:argon2] algorithm encoded in [B64][specs:b64].                                                                      |
 
 For more details consult the Argon2 paper [here][paper].
 
@@ -102,16 +79,16 @@ npm install --save @phc/argon2
 ## Usage
 
 ```js
-const argon2 = require('@phc/argon2');
+const argon2 = require("@phc/argon2");
 
 // Hash and verify with argon2 and default configs
-const hash = await argon2.hash('password');
+const hash = await argon2.hash("password");
 // => $argon2id$v=19$m=4096,t=3,p=1$PcEZHj1maR/+ZQynyJHWZg$2jEN4xcww7CYp1jakZB1rxbYsZ55XH2HgjYRtdZtubI
 
-const match = await argon2.verify(hash, 'password');
+const match = await argon2.verify(hash, "password");
 // => true
 
-const match = await argon2.verify(hash, 'wrong');
+const match = await argon2.verify(hash, "wrong");
 // => false
 
 const ids = argon2.identifiers();
@@ -448,6 +425,7 @@ matches the hash generated for the password provided.</p>
 <a name="hash"></a>
 
 ### hash(password, [options]) ⇒ <code>Promise.&lt;string&gt;</code>
+
 Computes the hash string of the given password in the PHC format using argon2
 package.
 
@@ -456,19 +434,20 @@ package.
 format.
 **Access**: public
 
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| password | <code>string</code> |  | The password to hash. |
-| [options] | <code>Object</code> |  | Optional configurations related to the hashing function. |
-| [options.variant] | <code>number</code> | <code>id</code> | Optinal variant of argon2 to use. Can be one of [`'d'`, `'i'`, `'id'`] for argon2d, argon2i and argon2id respectively. |
-| [options.iterations] | <code>number</code> | <code>3</code> | Optional number of iterations to use. Must be an integer within the range (`1` <= `iterations` <= `2^32-1`). |
-| [options.memory] | <code>number</code> | <code>4096</code> | Optional amount of memory to use in kibibytes. Must be an integer within the range (`8` <= `memory` <= `2^32-1`). |
-| [options.parallelism] | <code>number</code> | <code>1</code> | Optional degree of parallelism to use. Must be an integer within the range (`1` <= `parallelism` <= `2^24-1`). |
-| [options.saltSize] | <code>number</code> | <code>16</code> | Optional number of bytes to use when autogenerating new salts. Must be an integer within the range (`1` <= `saltSize` <= `2^10-1`). |
+| Param                 | Type                | Default           | Description                                                                                                                         |
+| --------------------- | ------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| password              | <code>string</code> |                   | The password to hash.                                                                                                               |
+| [options]             | <code>Object</code> |                   | Optional configurations related to the hashing function.                                                                            |
+| [options.variant]     | <code>number</code> | <code>id</code>   | Optinal variant of argon2 to use. Can be one of [`'d'`, `'i'`, `'id'`] for argon2d, argon2i and argon2id respectively.              |
+| [options.iterations]  | <code>number</code> | <code>3</code>    | Optional number of iterations to use. Must be an integer within the range (`1` <= `iterations` <= `2^32-1`).                        |
+| [options.memory]      | <code>number</code> | <code>4096</code> | Optional amount of memory to use in kibibytes. Must be an integer within the range (`8` <= `memory` <= `2^32-1`).                   |
+| [options.parallelism] | <code>number</code> | <code>1</code>    | Optional degree of parallelism to use. Must be an integer within the range (`1` <= `parallelism` <= `2^24-1`).                      |
+| [options.saltSize]    | <code>number</code> | <code>16</code>   | Optional number of bytes to use when autogenerating new salts. Must be an integer within the range (`1` <= `saltSize` <= `2^10-1`). |
 
 <a name="verify"></a>
 
 ### verify(phcstr, password) ⇒ <code>Promise.&lt;boolean&gt;</code>
+
 Determines whether or not the hash stored inside the PHC formatted string
 matches the hash generated for the password provided.
 
@@ -477,14 +456,15 @@ matches the hash generated for the password provided.
 for the password matches.
 **Access**: public
 
-| Param | Type | Description |
-| --- | --- | --- |
-| phcstr | <code>string</code> | Secure hash string generated from this package. |
-| password | <code>string</code> | User's password input. |
+| Param    | Type                | Description                                     |
+| -------- | ------------------- | ----------------------------------------------- |
+| phcstr   | <code>string</code> | Secure hash string generated from this package. |
+| password | <code>string</code> | User's password input.                          |
 
 <a name="identifiers"></a>
 
 ### identifiers() ⇒ <code>Array.&lt;string&gt;</code>
+
 Gets the list of all identifiers supported by this hashing function.
 
 **Kind**: global function
@@ -492,12 +472,13 @@ Gets the list of all identifiers supported by this hashing function.
 **Access**: public
 
 ## Related
+
 - [@phc/scrypt][scrypt] -
-🔒 Node.JS scrypt password hashing algorithm following the PHC string format.
+  🔒 Node.JS scrypt password hashing algorithm following the PHC string format.
 - [@phc/bcrypt][bcrypt] -
-🔒 Node.JS bcrypt password hashing algorithm following the PHC string format.
+  🔒 Node.JS bcrypt password hashing algorithm following the PHC string format.
 - [@phc/pbkdf2][pbkdf2] -
-🔒 Node.JS PBKDF2 password hashing algorithm following the PHC string format.
+  🔒 Node.JS PBKDF2 password hashing algorithm following the PHC string format.
 
 ## Contributing
 
@@ -505,7 +486,7 @@ Contributions are REALLY welcome and if you find a security flaw in this code, P
 
 ## Authors
 
-- **Simone Primarosa** - *Github* ([@simonepri][github:simonepri]) • *Twitter* ([@simoneprimarosa][twitter:simoneprimarosa])
+- **Simone Primarosa** - _Github_ ([@simonepri][github:simonepri]) • _Twitter_ ([@simoneprimarosa][twitter:simoneprimarosa])
 
 See also the list of [contributors][contributors] who participated in this project.
 
@@ -514,29 +495,23 @@ See also the list of [contributors][contributors] who participated in this proje
 This project is licensed under the MIT License - see the [license][license] file for details.
 
 <!-- Links -->
+
 [start]: https://github.com/simonepri/phc-argon2#start-of-content
 [new issue]: https://github.com/simonepri/phc-argon2/issues/new
 [contributors]: https://github.com/simonepri/phc-argon2/contributors
-
 [license]: https://github.com/simonepri/phc-argon2/tree/master/license
-
 [tvec]: https://github.com/simonepri/phc-argon2/tree/master/test/vectors.js
-
 [scrypt]: https://github.com/simonepri/phc-scrypt
 [bcrypt]: https://github.com/simonepri/phc-bcrypt
 [pbkdf2]: https://github.com/simonepri/phc-pbkdf2
-
 [github:simonepri]: https://github.com/simonepri
 [twitter:simoneprimarosa]: http://twitter.com/intent/user?screen_name=simoneprimarosa
-
 [gh:sympact]: https://github.com/simonepri/sympact
-
 [specs:mcf]: https://github.com/ademarre/binary-mcf
 [specs:phc]: https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md
-[specs:B64]: https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md#b64
+[specs:b64]: https://github.com/P-H-C/phc-string-format/blob/master/phc-sf-spec.md#b64
 [specs:salt]: https://en.wikipedia.org/wiki/Salt_(cryptography)
 [specs:a2var]: https://crypto.stackexchange.com/a/49969
-[specs:Argon2]: https://en.wikipedia.org/wiki/Argon2
-
+[specs:argon2]: https://en.wikipedia.org/wiki/Argon2
 [paper]: https://tools.ietf.org/html/draft-irtf-cfrg-argon2-03
 [paper:test]: https://tools.ietf.org/html/draft-irtf-cfrg-argon2-03#section-6

@@ -1,9 +1,9 @@
 {
-  "version": "1.1.4",
-  "name": "phc-argon2",
+  "version": "1.2.0",
+  "name": "phc-argon2-fork",
   "description": "Node.JS Argon2 password hashing algorithm following the PHC string format",
   "license": "MIT",
-  "homepage": "https://github.com/thetutlage/phc-argon2#readme",
+  "homepage": "https://github.com/n0uur/phc-argon2#readme",
   "keywords": [
     "brute",
     "brute force",
@@ -53,7 +53,7 @@
   "dependencies": {
     "@kdf/salt": "^2.0.1",
     "@phc/format": "^1.0.0",
-    "argon2": "^0.30.2",
+    "argon2": "^0.40.3",
     "tsse": "^2.0.0"
   },
   "devDependencies": {
@@ -84,9 +84,9 @@
   "author": "virk",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thetutlage/phc-argon2.git"
+    "url": "git+https://github.com/n0uur/phc-argon2.git"
   },
   "bugs": {
-    "url": "https://github.com/thetutlage/phc-argon2/issues"
+    "url": "https://github.com/n0uur/phc-argon2/issues"
   }
 }
