@@ -54,7 +54,7 @@
     "@kdf/salt": "^2.0.1",
     "@phc/format": "^1.0.0",
     "argon2": "^0.40.3",
-    "tsse": "^2.0.0"
+    "tsse": "^2.1.0"
   },
   "devDependencies": {
     "ava": "^4.0.1",
